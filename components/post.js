@@ -117,7 +117,7 @@ function post({id, username, userImg, img, caption}) {
             <p className='p-5 truncate'>
                 {
                     likes.length > 0 && (
-                        <p className='font-bold mb-1'>{likes.length} likes</p>
+                        <span className='font-bold mb-1'>{likes.length} likes</span>
                     )
                 }
                 <span className='font-bold mr-1'>{username} </span>
@@ -129,7 +129,7 @@ function post({id, username, userImg, img, caption}) {
                 <div className='ml-10 h-20 overflow-y-scroll
                 scrollbar-thumb-black scrollbar-thin'>
                     {comments.map((comment) => (
-                        <div keys={comment.id} className='flex items-center 
+                        <div key={comment.id} className='flex items-center 
                         space-x-2 mb-3'>
                             <img src={comment.data().userImage} className='h-7 rounded-full' />
                             <p className='text-sm flex-1'>
@@ -137,7 +137,7 @@ function post({id, username, userImg, img, caption}) {
                                 {comment.data().comment}
                             </p>
 
-                            <Moment formNow className='pr-5 text-xs'>
+                            <Moment fromNow className='pr-5 text-xs'>
                                 {comment.data().timestamp.toDate()}
                             </Moment>
                         </div>
